@@ -51,7 +51,7 @@ abstract class Media implements MediaInterface
 
     protected ?int $cdnStatus = null;
 
-    protected bool $cdnIsFlushable = false;
+    protected ?bool $cdnIsFlushable = false;
 
     protected ?string $cdnFlushIdentifier = null;
 
@@ -232,14 +232,14 @@ abstract class Media implements MediaInterface
         return $this->cdnStatus;
     }
 
-    public function setCdnIsFlushable(bool $cdnIsFlushable): void
+    public function setCdnIsFlushable(?bool $cdnIsFlushable): void
     {
         $this->cdnIsFlushable = $cdnIsFlushable;
     }
 
     public function getCdnIsFlushable(): bool
     {
-        return $this->cdnIsFlushable;
+        return !!$this->cdnIsFlushable;
     }
 
     public function setCdnFlushIdentifier(?string $cdnFlushIdentifier): void
